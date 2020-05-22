@@ -7,8 +7,8 @@ private:
   bool isArmed = false;
 
 public:
-  static const int MINPOWER = 0;
-  static const int MAXPOWER = 180;
+  static const int MINPOWER = 45;
+  static const int MAXPOWER = 135;
 
   StablizerMotor(int pin);
   ~StablizerMotor();
