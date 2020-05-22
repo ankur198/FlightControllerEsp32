@@ -2,6 +2,7 @@
 #include "FlightDataStruct.h"
 #include "StructOperation.h"
 
+/// This class is responsible to transmit data to flight
 class ControllerManager
 {
 private:

@@ -23,11 +23,11 @@ FlightManager::FlightManager(/* args */)
   communication = new Nrf24Communication(Nrf24Communication::Role::FLIGHT);
 
   thrustManager = new ThrustManager();
-  thrustManager->AddThruster(12, ThrustManager::Position::RIGHT);
-  thrustManager->AddThruster(13, ThrustManager::Position::LEFT);
+  thrustManager->AddThruster(12, ThrustManager::Position::CENTER);
 
   stablizerManager = new StablizerManager();
-  stablizerManager->AddElevons(25, 26);
+  stablizerManager->SetElevator(25);
+  stablizerManager->SetRudder(26);
 }
 
 FlightManager::~FlightManager()
