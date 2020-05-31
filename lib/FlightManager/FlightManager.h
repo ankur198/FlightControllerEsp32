@@ -43,8 +43,8 @@ void FlightManager::Refesh()
 
     //thrusters
     thrustManager->SetArmed(newData.armThruster);
-    thrustManager->DifferentialEnabled = newData.diffrential;
-    thrustManager->SetDifferentialRatio(newData.diffrentialRatio);
+    thrustManager->DifferentialEnabled = newData.differential;
+    thrustManager->SetDifferentialRatio(newData.differentialRatio);
     thrustManager->SetPower(newData.thrusterPower);
 
     //stablizers

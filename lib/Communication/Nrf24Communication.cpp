@@ -7,8 +7,8 @@ Nrf24Communication::Nrf24Communication(Role role)
 
   lastData.armElevons = false;
   lastData.armThruster = false;
-  lastData.diffrential = false;
-  lastData.diffrentialRatio = 0;
+  lastData.differential = false;
+  lastData.differentialRatio = 0;
   lastData.horizontal = 0;
   lastData.thrusterPower = 0;
   lastData.vertical = 0;

@@ -5,9 +5,9 @@ struct FlightDataStruct
 {
   // thruster
   bool armThruster;       //0
-  bool diffrential;       //1
+  bool differential;       //1
   int thrusterPower;      //2
-  float diffrentialRatio; //3
+  float differentialRatio; //3
 
   // elevons
   bool armElevons; //4

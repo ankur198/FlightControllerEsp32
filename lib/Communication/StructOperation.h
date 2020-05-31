@@ -10,13 +10,13 @@ void AddToFlightData(FlightDataStruct *buffer, int id, float value)
     buffer->armThruster = value;
     break;
   case 1:
-    buffer->diffrential = value;
+    buffer->differential = value;
     break;
   case 2:
     buffer->thrusterPower = value;
     break;
   case 3:
-    buffer->diffrentialRatio = value;
+    buffer->differentialRatio = value;
     break;
   case 4:
     buffer->armElevons = value;
@@ -36,9 +36,9 @@ void AddToFlightData(FlightDataStruct *buffer, int id, float value)
 void PrintData(FlightDataStruct *buffer)
 {
   String data = "\n\nData\n\nArmThrust: " + String(buffer->armThruster) +
-                "\nDifferential: " + String(buffer->diffrential) +
+                "\nDifferential: " + String(buffer->differential) +
                 "\nThrust Power: " + String(buffer->thrusterPower) +
-                "\nDiffrential Ratio: " + String(buffer->diffrentialRatio) +
+                "\nDiffrential Ratio: " + String(buffer->differentialRatio) +
                 "\nArm Elevons: " + String(buffer->armElevons) +
                 "\nHorizontal: " + String(buffer->horizontal) +
                 "\nVertical: " + String(buffer->vertical);
