@@ -12,7 +12,16 @@ struct FlightDataStruct
   // elevons
   bool armElevons; //4
   int horizontal;  //5
-  int vertical; //6
+  int vertical;    //6
+
+  //sensors
+  float gyro_x;         //7
+  float gyro_y;         //8
+  float gyro_z;         //9
+  float acceleration_x; //10
+  float acceleration_y; //11
+  float acceleration_z; //12
+  float heading;        //13
 };
 
 #endif

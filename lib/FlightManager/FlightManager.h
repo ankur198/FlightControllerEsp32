@@ -39,7 +39,7 @@ void FlightManager::Refesh()
   if (!communication->lastDataRead)
   {
     auto newData = communication->lastData;
-    PrintData(&newData);
+    // PrintData(&newData);
 
     //thrusters
     thrustManager->SetArmed(newData.armThruster);

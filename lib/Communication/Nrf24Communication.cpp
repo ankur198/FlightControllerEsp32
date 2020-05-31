@@ -42,6 +42,7 @@ void Nrf24Communication::SendData(FlightDataStruct data)
   radio->stopListening();
 
   auto res = radio->write(&data, sizeof(data));
+  // Serial.println(data.thrusterPower);
   Serial.println(res);
 
   radio->startListening();
@@ -51,10 +52,11 @@ void Nrf24Communication::RecieveData()
 {
   if (radio->available())
   {
-    Serial.println("New data");
+    // Serial.println("New data");
     while (radio->available())
     {
       radio->read(&lastData, sizeof(lastData));
+      Serial.println(lastData.thrusterPower);
     }
     lastDataRead = false;
   }
