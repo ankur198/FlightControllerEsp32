@@ -9,7 +9,7 @@ private:
   /* data */
   Nrf24Communication *communication;
   ThrustManager *thrustManager;
-  StablizerManager *stablizerManager;
+  StabilizerManager *stabilizerManager;
 
 public:
   FlightManager(/* args */);
@@ -25,9 +25,9 @@ FlightManager::FlightManager(/* args */)
   thrustManager = new ThrustManager();
   thrustManager->AddThruster(12, ThrustManager::Position::CENTER);
 
-  stablizerManager = new StablizerManager();
-  stablizerManager->SetElevator(25);
-  stablizerManager->SetRudder(26);
+  stabilizerManager = new StabilizerManager();
+  stabilizerManager->SetElevator(25);
+  stabilizerManager->SetRudder(26);
 }
 
 FlightManager::~FlightManager()
@@ -48,15 +48,15 @@ void FlightManager::Refesh()
     thrustManager->SetPower(newData.thrusterPower);
 
     //stablizers
-    stablizerManager->ArmElevons(newData.armElevons);
-    stablizerManager->horizontal = newData.horizontal;
-    stablizerManager->vertical = newData.vertical;
+    stabilizerManager->ArmElevons(newData.armElevons);
+    stabilizerManager->horizontal = newData.horizontal;
+    stabilizerManager->vertical = newData.vertical;
 
     Serial.println("Arm: " + String(newData.armThruster));
 
     communication->lastDataRead = true;
   }
-  stablizerManager->Dispatch();
+  stabilizerManager->Dispatch();
   thrustManager->Dispatch();
   communication->Refresh();
 }

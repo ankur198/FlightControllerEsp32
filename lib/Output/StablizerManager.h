@@ -1,6 +1,6 @@
 #include "StablizerMotor.h"
 
-class StablizerManager
+class StabilizerManager
 {
 private:
   StablizerMotor *ElevonsLeft[2];
@@ -15,8 +15,8 @@ public:
   int vertical = 0;   //range from -50 to 50
   int horizontal = 0; //range from -50 to 50
 
-  StablizerManager(/* args */);
-  ~StablizerManager();
+  StabilizerManager(/* args */);
+  ~StabilizerManager();
 
   void AddElevons(int left, int right);
 
@@ -29,15 +29,15 @@ public:
   void Dispatch();
 };
 
-StablizerManager::StablizerManager(/* args */)
+StabilizerManager::StabilizerManager(/* args */)
 {
 }
 
-StablizerManager::~StablizerManager()
+StabilizerManager::~StabilizerManager()
 {
 }
 
-void StablizerManager::ArmElevons(bool value)
+void StabilizerManager::ArmElevons(bool value)
 {
   for (int i = 0; i < elevonsLeftCounter; i++)
   {
@@ -60,7 +60,7 @@ void StablizerManager::ArmElevons(bool value)
   }
 }
 
-void StablizerManager::Dispatch()
+void StabilizerManager::Dispatch()
 {
   //elevons
   if (elevonsLeftCounter != 0 || elevonsRightCounter != 0)
@@ -93,18 +93,18 @@ void StablizerManager::Dispatch()
   }
 }
 
-void StablizerManager::AddElevons(int left, int right)
+void StabilizerManager::AddElevons(int left, int right)
 {
   ElevonsLeft[elevonsLeftCounter++] = new StablizerMotor(left);
   ElevonsRight[elevonsRightCounter++] = new StablizerMotor(right);
 }
 
-void StablizerManager::SetElevator(int value)
+void StabilizerManager::SetElevator(int value)
 {
   Elevator = new StablizerMotor(value);
 }
 
-void StablizerManager::SetRudder(int value)
+void StabilizerManager::SetRudder(int value)
 {
   Rudder = new StablizerMotor(value);
 }
