@@ -1,6 +1,9 @@
+#ifndef _STABILIZE_MOTOR_
+#define _STABILIZE_MOTOR_
+
 #include "Motor.h"
 
-class StablizerMotor
+class StabilizerMotor
 {
 private:
   Motor *motor;
@@ -10,25 +13,25 @@ public:
   static const int MINPOWER = 45;
   static const int MAXPOWER = 135;
 
-  StablizerMotor(int pin);
-  ~StablizerMotor();
+  StabilizerMotor(int pin);
+  ~StabilizerMotor();
 
   void SetPower(int power);
   void SetArmedValue(bool value);
   bool GetArmed();
 };
 
-StablizerMotor::StablizerMotor(int pin)
+StabilizerMotor::StabilizerMotor(int pin)
 {
   motor = new Motor(pin);
   motor->SetPower(90);
 }
 
-StablizerMotor::~StablizerMotor()
+StabilizerMotor::~StabilizerMotor()
 {
 }
 
-void StablizerMotor::SetPower(int power)
+void StabilizerMotor::SetPower(int power)
 {
   if (power > MAXPOWER)
   {
@@ -44,13 +47,15 @@ void StablizerMotor::SetPower(int power)
   }
 }
 
-void StablizerMotor::SetArmedValue(bool value)
+void StabilizerMotor::SetArmedValue(bool value)
 {
   isArmed = value;
   motor->SetPower(90);
 }
 
-bool StablizerMotor::GetArmed()
+bool StabilizerMotor::GetArmed()
 {
   return isArmed;
 }
+
+#endif

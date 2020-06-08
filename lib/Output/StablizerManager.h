@@ -3,15 +3,18 @@
 class StabilizerManager
 {
 private:
-  StablizerMotor *ElevonsLeft[2];
-  StablizerMotor *ElevonsRight[2];
-  StablizerMotor *Elevator;
-  StablizerMotor *Rudder;
+  StabilizerMotor *ElevonsLeft[2];
+  StabilizerMotor *ElevonsRight[2];
+  StabilizerMotor *Elevator;
+  StabilizerMotor *Rudder;
 
   int elevonsLeftCounter = 0;
   int elevonsRightCounter = 0;
 
 public:
+  static const int MINPOWER = -50;
+  static const int MAXPOWER = 50;
+
   int vertical = 0;   //range from -50 to 50
   int horizontal = 0; //range from -50 to 50
 
@@ -84,27 +87,27 @@ void StabilizerManager::Dispatch()
 
   if (Elevator != nullptr)
   {
-    Elevator->SetArmedValue(vertical);
+    Elevator->SetPower(map(vertical, MINPOWER, MAXPOWER, Elevator->MINPOWER, Elevator->MAXPOWER));
   }
 
   if (Rudder != nullptr)
   {
-    Rudder->SetArmedValue(horizontal);
+    Rudder->SetPower(map(horizontal, MINPOWER, MAXPOWER, Elevator->MINPOWER, Elevator->MAXPOWER));
   }
 }
 
 void StabilizerManager::AddElevons(int left, int right)
 {
-  ElevonsLeft[elevonsLeftCounter++] = new StablizerMotor(left);
-  ElevonsRight[elevonsRightCounter++] = new StablizerMotor(right);
+  ElevonsLeft[elevonsLeftCounter++] = new StabilizerMotor(left);
+  ElevonsRight[elevonsRightCounter++] = new StabilizerMotor(right);
 }
 
 void StabilizerManager::SetElevator(int value)
 {
-  Elevator = new StablizerMotor(value);
+  Elevator = new StabilizerMotor(value);
 }
 
 void StabilizerManager::SetRudder(int value)
 {
-  Rudder = new StablizerMotor(value);
+  Rudder = new StabilizerMotor(value);
 }
